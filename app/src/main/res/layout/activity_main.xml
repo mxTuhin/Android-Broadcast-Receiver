@@ -27,7 +27,7 @@
         android:layout_width="350dp"
         android:layout_height="46dp"
         android:background="@drawable/custom_button"
-        android:popupBackground="@color/white"
+        android:popupBackground="#0E94A5"
         android:textColor="@color/white"
         android:textSize="20sp"
 
@@ -43,7 +43,7 @@
         android:layout_width="140dp"
         android:layout_height="51dp"
         android:background="@drawable/custom_button"
-        android:text="Operate"
+        android:text="Proceed"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

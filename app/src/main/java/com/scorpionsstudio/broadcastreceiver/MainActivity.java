@@ -3,14 +3,12 @@ package com.scorpionsstudio.broadcastreceiver;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -42,8 +40,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void openNextActivity(){
-        if(selectedItem==0){
-            Intent intent = new Intent(this, CustomBroadcast.class);
+        if(selectedItem==0 || selectedItem==2){
+            Intent intent = new Intent(this, CustomBroadcastActivity.class);
+            intent.putExtra("selected_item", selectedItem+"");
             startActivity(intent);
         }else{
             Intent intent = new Intent(this, ResultActivity.class);
@@ -57,9 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String text = adapterView.getItemAtPosition(i).toString();
-        Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
         selectedItem = i;
-        System.out.println(selectedItem);
     }
 
     @Override
