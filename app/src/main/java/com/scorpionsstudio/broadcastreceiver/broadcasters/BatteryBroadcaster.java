@@ -1,15 +1,15 @@
-package com.scorpionsstudio.broadcastreceiver;
+package com.scorpionsstudio.broadcastreceiver.broadcasters;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.TextView;
 
-public class BroadcastReceiverInstance extends BroadcastReceiver {
+public class BatteryBroadcaster extends BroadcastReceiver {
 
     TextView data_text;
 
-    public BroadcastReceiverInstance(TextView data_text){
+    public BatteryBroadcaster(TextView data_text){
         this.data_text = data_text;
     }
 

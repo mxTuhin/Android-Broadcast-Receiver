@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,11 +16,14 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private int selectedItem;
+    public Button operateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        operateButton = findViewById(R.id.operateButton);
 
         Spinner spinner = findViewById(R.id.choice_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.broadcastOptions, android.R.layout.simple_spinner_item);
@@ -27,6 +31,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(this);
+
+        operateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openNextActivity();
+            }
+        });
+
+    }
+
+    private void openNextActivity(){
+        if(selectedItem==0){
+            Intent intent = new Intent(this, CustomBroadcast.class);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra("selected_item", selectedItem+"");
+            startActivity(intent);
+        }
 
     }
 
@@ -44,7 +67,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    public void changeView(){
 
-    }
 }
