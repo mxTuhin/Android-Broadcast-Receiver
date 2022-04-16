@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BroadcastReceiver</string>
+    
+    <string-array name="broadcastOptions">
+        <item>Custom Broadcast Receiver</item>
+        <item>WiFi RTT State Change Receiver</item>
+        <item>System Battery Notification Receiver</item>
+
+    </string-array>
+</resources>
